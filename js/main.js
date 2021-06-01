@@ -90,7 +90,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 
 var render = function () {
     requestAnimationFrame(render);
-    var distanceFromSun = 150;
+    var distanceFromSun = 100;
 
     rotatePlanet(sphereSun, 0.02, 0, 0);
     rotatePlanet(sphereMercury, 0.0001, 4.7, distanceFromSun * 0.1);
