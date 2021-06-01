@@ -60,9 +60,25 @@ scene.add(sphereVenus);
 scene.add(sphereEarth);
 scene.add(sphereMars);
 scene.add(sphereJupiter);
-scene.add(sphereSaturn);
+
+const geometry = new THREE.RingGeometry( 4, 5, 32 );
+const material = new THREE.MeshBasicMaterial( { map: textureSaturn, side: THREE.DoubleSide } );
+const mesh = new THREE.Mesh( geometry, material );
+mesh.rotation.x -= 1.6;
+
+const group = new THREE.Group();
+group.add( sphereSaturn );
+group.add( mesh );
+
+scene.add( group );
+
+
+//scene.add(sphereSaturn);
+
+
 scene.add(sphereUranus);
 scene.add(sphereNeptune);
+
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -77,7 +93,7 @@ var render = function () {
     rotatePlanet(sphereEarth, 0.0157, 2.98, distanceFromSun * 0.3);
     rotatePlanet(sphereMars, 0.008, 2.41, distanceFromSun * 0.4);
     rotatePlanet(sphereJupiter, 4.58, 1.31, distanceFromSun * 0.5);
-    rotatePlanet(sphereSaturn, 3.68, 0.97, distanceFromSun * 0.6);
+    rotatePlanet(group, 3.68, 0.97, distanceFromSun * 0.6);
     rotatePlanet(sphereUranus, 1.4, 0.68, distanceFromSun * 0.7);
     rotatePlanet(sphereNeptune, 0.09, 0.54, distanceFromSun * 0.8);
 
