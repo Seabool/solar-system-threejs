@@ -29,7 +29,7 @@ const textureUranus = new THREE.TextureLoader().load("img/uranus.jpg");
 const textureNeptune = new THREE.TextureLoader().load("img/neptune.jpg");
 
 function createPlanet(size, texture) {
-    var geometry = new THREE.SphereGeometry(size, 50, 50);
+    var geometry = new THREE.SphereGeometry(size, 25, 25);
     var material = new THREE.MeshBasicMaterial({ map: texture });
     var sphere = new THREE.Mesh(geometry, material);
     sphere.castShadow = true;
